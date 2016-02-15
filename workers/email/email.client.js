@@ -1,5 +1,7 @@
 var kue = require('kue');
 
+var config = require('../../config/development.json');
+
 function EmailClient() {
     if (!(this instanceof EmailClient)) {
         return new EmailClient();
@@ -9,8 +11,8 @@ function EmailClient() {
 
     self.queue = kue.createQueue({
         redis: {
-            port: 32768,
-            host: '192.168.99.100'
+            port: config.redis.port,
+            host: config.redis.host
         }
     });
 }

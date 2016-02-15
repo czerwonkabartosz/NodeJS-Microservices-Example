@@ -2,6 +2,7 @@ var TChannelJSON = require('tchannel/as/json');
 var TChannel = require('tchannel');
 var HyperbahnClient = require('tchannel/hyperbahn/');
 
+var config = require('../../config/development.json');
 var EmailClient = require('./../../workers/email/email.client');
 
 function UsersService() {
@@ -25,7 +26,7 @@ function UsersService() {
     self.hyperbahnClient = HyperbahnClient({
         tchannel: self.rootChannel,
         serviceName: 'UsersServiceClient',
-        hostPortList: ['127.0.0.1:21301'],
+        hostPortList: config.hyperbahn.seedList,
         hardFail: true
     });
 

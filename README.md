@@ -6,10 +6,11 @@ NodeJS Microservices Example with:
 - ExpressJS - https://github.com/expressjs/express
 
 # Quick Start
-1. Run Huperbahn - https://github.com/uber/hyperbahn#local-quick-start
-2. Run Front Api - ```node front/api.js```
-3. Run Users Service (Microservice) - ```node services/users/users.service.js```
-4. Run Email Worker (Microservice) - ```node workers/email/email.worker.js```
-5. Run ```curl 'http://localhost:3000/register' ```
+1. Change config - config/development.json
+2. Run Huperbahn - https://github.com/uber/hyperbahn#local-quick-start
+3. Run Front Api - ```node front/api.js```
+4. Run Users Service (Microservice) - ```node services/users/users.service.js```
+5. Run Email Worker (Microservice) - ```node workers/email/email.worker.js```
+6. Run ```curl 'http://localhost:3000/register' ```
 
 
