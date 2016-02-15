@@ -22,7 +22,7 @@ function UsersClient() {
 
     self.serviceChannel = TChannelJSON({
         channel: self.hyperbahnClient.getClientChannel({
-            serviceName: 'UsersServiceClient'
+            serviceName: 'UsersService'
         })
     });
 }
@@ -31,20 +31,31 @@ UsersClient.prototype.get = function get(cb) {
     var self = this;
 
     self.serviceChannel.request({
-        serviceName: 'UsersServiceClient',
+        serviceName: 'UsersService',
         timeout: 100,
         hasNoParent: true
-    }).send('UsersServiceClient:getAllUsers', null, null, cb);
+    }).send('UsersService:getAllUsers', null, null, cb);
 };
+
+UsersClient.prototype.getUser = function get(userId, cb) {
+    var self = this;
+
+    self.serviceChannel.request({
+        serviceName: 'UsersService',
+        timeout: 100,
+        hasNoParent: true
+    }).send('UsersService:getUser', null, {userId: userId}, cb);
+};
+
 
 UsersClient.prototype.register = function get(user, cb) {
     var self = this;
 
     self.serviceChannel.request({
-        serviceName: 'UsersServiceClient',
+        serviceName: 'UsersService',
         timeout: 100,
         hasNoParent: true
-    }).send('UsersServiceClient:register', null, user, cb);
+    }).send('UsersService:register', null, user, cb);
 };
 
 module.exports = UsersClient;
